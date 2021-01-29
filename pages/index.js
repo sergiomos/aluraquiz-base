@@ -1,10 +1,14 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import db from '../db.json';
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -17,34 +21,60 @@ const QuizContainer = styled.div`
   }
 `;
 
-
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
-   <QuizBackground backgroundImage = {db.bg}>
-     <QuizContainer>
-       <QuizLogo/>
-       <Widget>
+    <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>AluraQuiz - Modelo Base</title>
+        <meta property="og:image" content={db.bg} />
+
+      </Head>
+      <QuizContainer>
+        <QuizLogo />
+        <Widget>
           <Widget.Header>
-           <h1>The legend of Zelda</h1>
+            <h1>The legend of Zelda</h1>
+          </Widget.Header>
+
+          <Widget.Content>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+            <form onSubmit={(event) => {
+              event.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <input
+                onChange={(event) => {
+                  setName(event.target.value);
+                }}
+                type="text"
+                placeholder="Digite seu nome para jogar"
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
+              </button>
+            </form>
+          </Widget.Content>
+        </Widget>
+
+        <Widget>
+          <Widget.Header>
+            <h1>Quizes da Galera</h1>
           </Widget.Header>
 
           <Widget.Content>
             <p>Lorem ipsum dolor sit amet ...</p>
           </Widget.Content>
-       </Widget>
-
-       <Widget>
-          <Widget.Header>
-           <h1>Quizes da Galera</h1>
-          </Widget.Header>
-
-          <Widget.Content>
-            <p>Lorem ipsum dolor sit amet ...</p>
-          </Widget.Content>
-       </Widget>
-       <Footer/>
-     </QuizContainer>
-     <GitHubCorner projectUrl = "" />
-   </QuizBackground>
-  )
+        </Widget>
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/sergiomos/aluraquiz-base" />
+    </QuizBackground>
+  );
 }
