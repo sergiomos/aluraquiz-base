@@ -28,12 +28,12 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>The legend of Zelda</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
 
           <Widget.Content>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <p>{db.description}</p>
 
             <form onSubmit={(event) => {
               event.preventDefault();
