@@ -10,7 +10,7 @@ export default function QuizDaGaleraPage({ externalDb }) {
 }
 
 export async function getServerSideProps() {
-  const externalDb = await fetch('http://localhost:3000/api/db')
+  const externalDb = await fetch('https://witchquiz.sergiomos.vercel.app/api/db')
     .then((serverResponse) => {
       if (serverResponse.ok) {
         return serverResponse.json();
