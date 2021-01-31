@@ -5,7 +5,7 @@
   "questions": [
     {
       "image": "https://media.giphy.com/media/FDu0k1BETbTjeH4xXx/giphy.gif",
-      "title": "O que fazer quando ver um(a) bruxo(a)",
+      "title": "O que fazer quando ver um(a) bruxo(a)?",
       "description": "Só um teste",
       "answer": 1,
       "alternatives": [
@@ -17,8 +17,8 @@
     },
     {
       "image": "https://media.giphy.com/media/iBjylURwS9N9FCl8Dl/giphy.gif",
-      "title": "Qual a diferença entre bruxaria e a Wicca",
-      "description": "Se tiver dificuldade nesse, pause e estude um pouco, o importante é a busca pelo conhecimento",
+      "title": "Qual a diferença entre bruxaria e a Wicca?",
+      "description": "Se tiver dificuldade, pause e estude um pouco, o importante é a busca pelo conhecimento",
       "answer": 0,
       "alternatives": [
         "A Wicca é uma religião centrada no culto ao Sagrado Feminino e bruxaria é um ofício de uma bruxa ou bruxo.",
@@ -41,7 +41,7 @@
     },
     {
       "image": "https://media.giphy.com/media/FWtVYDHIxgGgE/giphy.gif",
-      "title": "Qual é a melhor fase da lua para os seguintes feitiços respectivamente: Banimento, Proteção, Prosperidade",
+      "title": "Qual é a melhor fase da lua para os seguintes feitiços respectivamente? Banimento, Proteção, Prosperidade",
       "description": "Errar uma dessas luas pode ser fatal",
       "answer": 3,
       "alternatives": [
@@ -53,8 +53,8 @@
     },
     {
       "image": "https://media.giphy.com/media/UjYw9fdCEPwU8/giphy.gif",
-      "title": "Uma bruxa de verdade",
-      "description": "Errar uma dessas luas pode ser fatal",
+      "title": "Uma bruxa de verdade.",
+      "description": "Saber identificar uma é crucial",
       "answer": 0,
       "alternatives": [
          "Coleciona pedras",
