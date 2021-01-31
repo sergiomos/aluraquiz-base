@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Router from 'next/router';
+import Lottie from 'react-lottie';
+import animationData from '../spinner.json';
 
-import db from '../db.json';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import GitHubCorner from '../src/components/GitHubCorner';
-import Widget from '../src/components/Widget';
-import Footer from '../src/components/Footer';
-import QuizContainer from '../src/components/QuizContainer';
-import Button from '../src/components/Button';
-import AlternativeForm from '../src/components/AlternativeForm';
+// import db from '../../../db.json';
+import QuizBackground from '../QuizBackground';
+import QuizLogo from '../QuizLogo';
+import Widget from '../Widget';
+import Footer from '../Footer';
+import QuizContainer from '../QuizContainer';
+import Button from '../Button';
+import AlternativeForm from '../AlternativeForm';
+import BackLinkArrow from '../BackLinkArrow';
 
 function ResultsWidget({ results }) {
   const { name } = Router.query;
@@ -34,7 +36,10 @@ function ResultsWidget({ results }) {
           {' '}
           questoẽs, parabéns! */}
 
-          {`${name}, você acertou ${results.filter((x) => x === true).length} questões, Parabéns`}
+          {name !== undefined && name}
+
+          {`, você acertou ${results.filter((x) => x === true).length} questões, Parabéns`}
+
         </p>
         <ul>
           {results.map((result, question) => (
@@ -52,6 +57,17 @@ function ResultsWidget({ results }) {
 }
 
 function LoadingWidget() {
+  const [isStopped, isPaused] = React.useState(false);
+  // const [isPaused, setIsPaused] = React.useState(false);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
   return (
     <Widget>
       <Widget.Header>
@@ -59,7 +75,13 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <Lottie
+          options={defaultOptions}
+          height={100}
+          width={100}
+          isStopped={isStopped}
+          isPaused={isPaused}
+        />
       </Widget.Content>
     </Widget>
   );
@@ -82,6 +104,7 @@ function QuestionWidget({
     <div>
       <Widget>
         <Widget.Header>
+          <BackLinkArrow href="/" />
           <h3>
             {`Pergunta ${questionIndex + 1} de ${totalQuestion}`}
           </h3>
@@ -158,7 +181,7 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizPage({ externalDb: db }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResult] = React.useState([]);
   const totalQuestion = db.questions.length;
@@ -176,7 +199,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 3 * 1000);
   }, []);
 
   function handleSubmit() {
@@ -210,7 +233,6 @@ export default function QuizPage() {
 
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/sergiomos/aluraquiz-base" />
     </QuizBackground>
   );
 }

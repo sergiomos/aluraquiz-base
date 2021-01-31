@@ -65,7 +65,9 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://pato-quiz-nextjs.theedouglasam.vercel.app/",
+    "https://aluraquiz-coffee.leonardot07.vercel.app/"
   ],
   "theme": {
     "colors": {
