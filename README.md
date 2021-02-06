@@ -1,7 +1,3 @@
-<h1 aling="center">
-<img src="https://ik.imagekit.io/sergiomos/logo-imersao-react-nextjs.1609362171_GUPID8DO3.svg">
-</h1>
-
 # Alura Quiz - Tema: Bruxas
 
 ## Sobre
