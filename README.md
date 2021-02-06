@@ -7,7 +7,7 @@ Esse projeto foi desenvolvido na Imersão React Nextjs v2 da Alura, com a presen
 Durante a semana desenvolvemos um quiz genérico. Para poder jogar minha versão clique [Aqui](https://witchquiz.sergiomos.vercel.app/)
 
 
-![](https://ik.imagekit.io/sergiomos/ezgif.com-gif-maker__1__xwRpLGFJw.gif)
+![Gif](https://ik.imagekit.io/sergiomos/ezgif.com-gif-maker__1__xwRpLGFJw.gif)
 
 
 
